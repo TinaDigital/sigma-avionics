@@ -168,3 +168,15 @@
   height: 1px;
   background: linear-gradient(to right, oklch(0.52 0.19 252 / 0.8), transparent);
 }
+
+/* METAR/TAF embed readability on dark background */
+.metar-widget #metartaf-VfoG9wNa,
+.metar-widget #metartaf-VfoG9wNa:visited,
+.metar-widget #metartaf-VfoG9wNa:hover {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.metar-widget #metartaf-VfoG9wNa * {
+  color: #ffffff !important;
+}

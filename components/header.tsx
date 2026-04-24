@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
@@ -15,6 +16,7 @@ const navItems = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,22 @@ export function Header() {
     setIsMobileMenuOpen(false)
   }
 
+  const goToHomeOrScrollHero = () => {
+    if (pathname !== "/") {
+      window.location.href = "/"
+      return
+    }
+    scrollToSection("hero")
+  }
+
+  const handleNavClick = (id: string) => {
+    if (id === "hero" && pathname !== "/") {
+      window.location.href = "/"
+      return
+    }
+    scrollToSection(id)
+  }
+
   return (
     <header
       className={cn(
@@ -45,8 +63,8 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <button
-            onClick={() => scrollToSection("hero")}
-            className="flex items-center gap-3 group"
+            onClick={goToHomeOrScrollHero}
+            className="flex items-center gap-3 group cursor-pointer"
           >
             <Image
               src="/images/logo-sigma-white.png"
@@ -63,8 +81,8 @@ export function Header() {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="group relative font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200 pb-0.5"
+                onClick={() => handleNavClick(item.id)}
+                className="group relative font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200 pb-0.5 cursor-pointer"
               >
                 {item.label}
                 {/* Animated underline */}
@@ -72,8 +90,15 @@ export function Header() {
               </button>
             ))}
             <a
+              href="/aviation-info-portal"
+              className="group relative font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200 pb-0.5 cursor-pointer"
+            >
+              Portal
+              <span className="absolute bottom-0 left-0 h-px w-0 bg-accent transition-all duration-300 ease-out group-hover:w-full" />
+            </a>
+            <a
               href="tel:+5491154982223"
-              className="group relative inline-flex items-center gap-2 border border-accent/60 px-5 py-2 font-mono text-xs uppercase tracking-widest text-accent hover:text-accent-foreground transition-all duration-300 overflow-hidden"
+              className="group relative inline-flex items-center gap-2 border border-accent/60 px-5 py-2 font-mono text-xs uppercase tracking-widest text-accent hover:text-accent-foreground transition-all duration-300 overflow-hidden cursor-pointer"
             >
               {/* Fill sweep on hover */}
               <span className="absolute inset-0 bg-accent translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300 ease-out" />
@@ -103,15 +128,22 @@ export function Header() {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className="py-3 font-mono text-sm uppercase tracking-widest text-muted-foreground hover:text-accent transition-colors duration-200 text-left border-b border-border/30 last:border-0"
+              onClick={() => handleNavClick(item.id)}
+              className="py-3 font-mono text-sm uppercase tracking-widest text-muted-foreground hover:text-accent transition-colors duration-200 text-left border-b border-border/30 last:border-0 cursor-pointer"
             >
               {item.label}
             </button>
           ))}
           <a
+            href="/aviation-info-portal"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="py-3 font-mono text-sm uppercase tracking-widest text-muted-foreground hover:text-accent transition-colors duration-200 text-left border-b border-border/30 cursor-pointer"
+          >
+            Aviation Info Portal
+          </a>
+          <a
             href="tel:+5491154982223"
-            className="mt-4 inline-flex items-center justify-center gap-2 border border-accent bg-accent text-accent-foreground px-4 py-3 font-mono text-xs uppercase tracking-widest hover:bg-accent/90 transition-all duration-200"
+            className="mt-4 inline-flex items-center justify-center gap-2 border border-accent bg-accent text-accent-foreground px-4 py-3 font-mono text-xs uppercase tracking-widest hover:bg-accent/90 transition-all duration-200 cursor-pointer"
           >
             Contactar Ahora
           </a>

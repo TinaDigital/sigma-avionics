@@ -158,16 +158,16 @@ export function HeroSection() {
           className="mb-8 md:mb-10 lg:mb-8 notebook-screen:mb-6 short-screen:mb-5 2xl:mb-14 grid grid-cols-3 gap-px bg-border/20 overflow-hidden w-full max-w-md md:max-w-lg lg:max-w-[520px] notebook:max-w-[480px] desktop:max-w-[560px] 2xl:max-w-xl glass-card"
         >
           <div className="stat-item flex flex-col items-center gap-1 py-4 md:py-5 notebook-screen:py-3 short-screen:py-2.5 px-2.5 md:px-3">
-            <span className="font-display font-semibold text-xl md:text-2xl lg:text-[1.65rem] notebook-screen:text-[1.35rem] short-screen:text-[1.25rem] text-accent tracking-wide">Taller</span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">y en pista</span>
+            <span className="font-display font-semibold text-xl md:text-2xl lg:text-[1.65rem] notebook-screen:text-[1.35rem] short-screen:text-[1.25rem] text-accent tracking-wide">ANAC</span>
+            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">1B-724</span>
           </div>
           <div className="stat-item flex flex-col items-center gap-1 py-4 md:py-5 notebook-screen:py-3 short-screen:py-2.5 px-2.5 md:px-3 border-x border-border/20">
             <span className="font-display font-semibold text-xl md:text-2xl lg:text-[1.65rem] notebook-screen:text-[1.35rem] short-screen:text-[1.25rem] text-accent tracking-wide">RAAC</span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">Cumplimiento</span>
+            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">91.411 / 91.413</span>
           </div>
           <div className="stat-item flex flex-col items-center gap-1 py-4 md:py-5 notebook-screen:py-3 short-screen:py-2.5 px-2.5 md:px-3">
-            <span className="font-display font-semibold text-xl md:text-2xl lg:text-[1.65rem] notebook-screen:text-[1.35rem] short-screen:text-[1.25rem] text-accent tracking-wide">Socios</span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">Tecnicos</span>
+            <span className="font-display font-semibold text-xl md:text-2xl lg:text-[1.65rem] notebook-screen:text-[1.35rem] short-screen:text-[1.25rem] text-accent tracking-wide">Soporte</span>
+            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">Taller + pista</span>
           </div>
         </div>
 

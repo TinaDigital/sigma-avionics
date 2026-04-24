@@ -117,64 +117,10 @@ export function ColophonSection() {
           </div>
 
           {/* ── RIGHT — cert + coords + map ── */}
-          <div ref={rightRef} className="relative flex flex-col">
-          {/* Top info strip */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/40 border-b border-border/40 flex-shrink-0">
-            {/* ANAC cert */}
-            <div className="px-6 md:px-8 py-7 md:py-8 flex flex-col items-center text-center gap-1.5">
-              <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground">
-                Habilitacion ANAC
-              </p>
-              <p className="font-display font-semibold text-4xl text-accent tracking-tight leading-none mt-1">
-                1B-724
-              </p>
-              <p className="font-mono text-[10px] text-muted-foreground mt-2 leading-relaxed">
-                Taller Aeronautico<br />de Reparacion
-              </p>
-            </div>
-
-            {/* Coordinates block */}
-            <div className="px-6 md:px-8 py-7 md:py-8 flex flex-col items-center text-center gap-2.5">
-              <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground">
-                Coordenadas GPS
-              </p>
-              <div className="space-y-1">
-                <p className="font-mono text-sm text-foreground/80">
-                  34° 52&apos; 37.1&quot; S
-                </p>
-                <p className="font-mono text-sm text-foreground/80">
-                  57° 57&apos; 31.4&quot; O
-                </p>
-              </div>
-              <p className="font-mono text-[10px] text-muted-foreground mt-1">
-                Elev. 6 m / 20 ft
-              </p>
-            </div>
-          </div>
-
-          {/* CTA row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/40 border-b border-border/40 flex-shrink-0">
-            <a
-              href="tel:+5491154982223"
-              className="group flex items-center justify-center gap-2 px-6 py-4 md:py-5 font-display font-semibold text-sm uppercase tracking-[0.15em] text-foreground/70 hover:text-accent hover:bg-accent/5 transition-all duration-300"
-            >
-              <Phone className="w-4 h-4" />
-              <span>Llamar</span>
-              <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-            </a>
-            <a
-              href="mailto:info@sigmaavionics.com.ar"
-              className="group flex items-center justify-center gap-2 px-6 py-4 md:py-5 font-display font-semibold text-sm uppercase tracking-[0.15em] bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300"
-            >
-              <Mail className="w-4 h-4" />
-              <span>Email</span>
-              <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-            </a>
-          </div>
-
+          <div ref={rightRef} className="relative flex flex-col justify-center">
           {/* Google map embed */}
-          <div className="px-6 md:px-8 py-6 md:py-8">
-            <div className="relative w-full overflow-hidden rounded-sm border border-border/40 h-[240px] md:h-[290px] lg:h-[320px]">
+          <div className="px-6 md:px-8 py-6 md:py-8 h-full">
+            <div className="relative w-full overflow-hidden rounded-sm border border-border/40 h-[280px] md:h-[360px] lg:h-full lg:min-h-[420px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d5983.789388322374!2d-57.96151101215368!3d-34.87672713908732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDUyJzM3LjEiUyA1N8KwNTcnMzEuNCJX!5e1!3m2!1ses-419!2sar!4v1776999325631!5m2!1ses-419!2sar"
                 title="Mapa Aero Club La Plata"
