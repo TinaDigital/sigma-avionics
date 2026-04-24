@@ -1,18 +1,12 @@
 "use client"
 
 import { useRef, useEffect } from "react"
-import dynamic from "next/dynamic"
+import Image from "next/image"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Phone, Mail, MapPin, Clock, ArrowUpRight } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger)
-
-// Load map only on client — avoids SSR window errors and iframe scroll bugs
-const SigmaMap = dynamic(
-  () => import("@/components/sigma-map").then((m) => m.SigmaMap),
-  { ssr: false, loading: () => <div className="w-full h-full bg-muted/30 animate-pulse" /> }
-)
 
 export function ColophonSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -178,13 +172,21 @@ export function ColophonSection() {
             </a>
           </div>
 
-          {/* Relief map — fills remaining space, isolated from GSAP */}
+          {/* Google map embed */}
           <div className="px-6 md:px-8 py-6 md:py-8">
-            <div className="relative mx-auto w-full max-w-xl overflow-hidden rounded-sm border border-border/40" style={{ height: "220px" }}>
-              <SigmaMap />
+            <div className="relative w-full overflow-hidden rounded-sm border border-border/40 h-[240px] md:h-[290px] lg:h-[320px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d5983.789388322374!2d-57.96151101215368!3d-34.87672713908732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDUyJzM3LjEiUyA1N8KwNTcnMzEuNCJX!5e1!3m2!1ses-419!2sar!4v1776999325631!5m2!1ses-419!2sar"
+                title="Mapa Aero Club La Plata"
+                className="absolute inset-0 h-full w-full"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
 
             {/* Overlay label */}
-              <div className="absolute top-3 left-3 z-[400] glass-card px-2.5 py-1.5 pointer-events-none">
+              <div className="absolute top-3 left-3 md:top-4 md:left-4 z-[400] glass-card px-2.5 py-1.5 pointer-events-none">
                 <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-foreground/70">
                   Aeroclub La Plata Ensenada
                 </p>
@@ -195,7 +197,7 @@ export function ColophonSection() {
                 href="https://maps.google.com/?q=-34.876984,-57.958714"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute bottom-3 right-3 z-[400] group flex items-center gap-1.5 glass-card px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/80 hover:text-accent transition-all duration-200"
+                className="absolute bottom-3 right-3 md:bottom-4 md:right-4 z-[400] group flex items-center gap-1.5 glass-card px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/80 hover:text-accent transition-all duration-200"
               >
                 Abrir en Maps
                 <ArrowUpRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

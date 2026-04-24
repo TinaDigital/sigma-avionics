@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react"
 import { HighlightText } from "@/components/highlight-text"
 import { AirplaneUnderline } from "@/components/airplane-underline"
+import Image from "next/image"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -130,13 +131,13 @@ export function PrinciplesSection() {
           <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-accent">02 / Nosotros</span>
         </div>
         <h2 className="font-display font-semibold text-5xl md:text-6xl lg:text-8xl 2xl:text-9xl tracking-tight uppercase leading-none">
-          Sobre<br />
-          <span className="text-foreground/30">Sigma</span>
+          Sobre <span className="text-foreground/30">Sigma</span>
         </h2>
       </div>
 
       {/* Introduction paragraph */}
-      <div ref={introRef} className="relative z-10 mb-16 md:mb-24 2xl:mb-28 max-w-2xl 2xl:max-w-3xl">
+      <div ref={introRef} className="relative z-10 mb-16 md:mb-24 2xl:mb-28 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] 2xl:grid-cols-[minmax(0,1fr)_380px] gap-8 lg:gap-10 items-start max-w-5xl">
+        <div>
         <p className="text-base md:text-lg text-foreground/80 leading-relaxed font-light">
           En la aviacion no hay margen para el error.{" "}
           <span className="text-accent font-medium">Sigma Avionics</span> nace con una premisa clara: ofrecer un servicio tecnico que combine la precision de un laboratorio de ingenieria con la agilidad que exige la operacion diaria.
@@ -147,6 +148,22 @@ export function PrinciplesSection() {
         <p className="font-display font-semibold text-xl md:text-2xl text-accent tracking-widest uppercase mt-8">
           A eso lo llamamos instalar confianza.
         </p>
+        </div>
+        <div className="relative h-52 md:h-64 lg:h-full min-h-[210px] overflow-hidden border border-border/40">
+          <Image
+            src="/images/cockpit.jpg"
+            alt="Cabina y panel de instrumentos"
+            fill
+            className="object-cover opacity-75"
+            sizes="(max-width: 1024px) 100vw, 380px"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/15 to-transparent" />
+          <div className="absolute bottom-3 left-3 glass-card px-3 py-2">
+            <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-foreground/75">
+              Precision en cabina
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Staggered principles */}

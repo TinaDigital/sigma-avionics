@@ -155,19 +155,36 @@ export function SignalsSection() {
       />
 
       {/* Section header */}
-      <div ref={headerRef} className="mb-16 md:mb-20">
-        <div className="flex items-center gap-4 mb-6">
-          <div className="rule-accent w-8 opacity-80" />
-          <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-accent">01 / Servicios</span>
+      <div ref={headerRef} className="mb-16 md:mb-20 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] xl:grid-cols-[minmax(0,1fr)_420px] gap-8 lg:gap-10 items-end">
+        <div>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="rule-accent w-8 opacity-80" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-accent">01 / Servicios</span>
+          </div>
+          <h2 className="font-display font-semibold text-5xl md:text-6xl lg:text-8xl tracking-tight uppercase leading-none">
+            Nuestros<br />
+            <span className="text-foreground/30">Servicios</span>
+          </h2>
+          <p className="mt-6 max-w-xl text-base text-muted-foreground leading-relaxed font-light">
+            Soluciones integrales en avionica para aeronaves civiles y experimentales.
+            Desde instalaciones completas hasta ensayos normativos RAAC.
+          </p>
         </div>
-        <h2 className="font-display font-semibold text-5xl md:text-6xl lg:text-8xl tracking-tight uppercase leading-none">
-          Nuestros<br />
-          <span className="text-foreground/30">Servicios</span>
-        </h2>
-        <p className="mt-6 max-w-xl text-base text-muted-foreground leading-relaxed font-light">
-          Soluciones integrales en avionica para aeronaves civiles y experimentales.
-          Desde instalaciones completas hasta ensayos normativos RAAC.
-        </p>
+        <div className="relative h-44 md:h-52 lg:h-56 w-full overflow-hidden border border-border/40">
+          <Image
+            src="/images/aircraft-hangar.jpg"
+            alt="Taller de avionica Sigma Avionics"
+            fill
+            className="object-cover opacity-70"
+            sizes="(max-width: 1024px) 100vw, 420px"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/35 to-transparent" />
+          <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 glass-card px-3 py-2">
+            <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-foreground/75">
+              Taller y ensayos en pista
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Services grid — gap-px creates hairline borders, grid-rows auto-stretches all cells */}
