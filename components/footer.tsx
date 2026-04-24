@@ -65,9 +65,9 @@ export function Footer() {
             <Image
               src="/images/logo-sigma-white.png"
               alt="Sigma Avionics"
-              width={160}
-              height={46}
-              className="h-8 w-auto opacity-90"
+              width={384}
+              height={150}
+              className="w-[150px] md:w-[165px] h-auto opacity-90"
             />
             <p className="font-light text-sm text-muted-foreground leading-relaxed max-w-[200px]">
               Ingenieria de precision para su cabina. Confianza instalada.

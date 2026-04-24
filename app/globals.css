@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant short-screen (@media (max-height: 50rem));
+@custom-variant notebook-screen (@media (min-width: 64rem) and (max-width: 90rem));
 
 /* Sigma Avionics — Premium dark aerospace theme */
 :root {
@@ -36,6 +38,10 @@
 }
 
 @theme inline {
+  --breakpoint-notebook: 72rem;
+  --breakpoint-desktop: 100rem;
+  --breakpoint-3xl: 120rem;
+  --breakpoint-4xl: 140rem;
   --font-sans: var(--font-sans), "Barlow", sans-serif;
   --font-mono: var(--font-mono), "IBM Plex Mono", monospace;
   --font-display: var(--font-display), "Barlow Condensed", sans-serif;

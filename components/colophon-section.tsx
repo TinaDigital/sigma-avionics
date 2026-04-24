@@ -58,13 +58,8 @@ export function ColophonSection() {
     >
       <div className="rule-accent w-full h-px opacity-60" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2">
-
-        {/* ── LEFT — headline + contact rows ── */}
-        <div
-          ref={leftRef}
-          className="relative flex flex-col justify-between px-8 md:px-14 py-16 md:py-20"
-        >
+      <div className="px-8 md:px-14 2xl:px-20 3xl:px-28 py-16 md:py-20 2xl:py-24">
+        <div className="relative mb-12 lg:mb-14">
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -72,27 +67,31 @@ export function ColophonSection() {
                 "radial-gradient(ellipse 70% 60% at 10% 50%, oklch(0.52 0.19 252 / 0.07) 0%, transparent 70%)",
             }}
           />
-
-          <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-10">
+          <div className="relative z-10 max-w-4xl 2xl:max-w-5xl">
+            <div className="flex items-center gap-3 mb-8">
               <div className="rule-accent w-6 opacity-70" />
               <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-accent">
                 03 / Contacto
               </span>
             </div>
-
-            <h2 className="font-display font-semibold text-5xl md:text-6xl xl:text-7xl uppercase leading-[0.95] tracking-tight mb-8">
+            <h2 className="font-display font-semibold text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl uppercase leading-[0.95] tracking-tight mb-6">
               Hablemos<br />
               <span className="text-accent">de su</span><br />
               aeronave.
             </h2>
-
-            <p className="text-base text-muted-foreground leading-relaxed max-w-sm font-light">
+            <p className="text-base 2xl:text-lg text-muted-foreground leading-relaxed max-w-2xl 2xl:max-w-3xl font-light">
               Nuestro equipo tecnico esta listo para asesorarlo. Consultas, presupuestos o visitas a nuestro taller certificado ANAC en Ensenada, La Plata.
             </p>
           </div>
+        </div>
 
-          <div className="relative z-10 mt-12 divide-y divide-border/40">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-border/40 2xl:max-w-[1500px] 2xl:mx-auto">
+          {/* ── LEFT — contact rows ── */}
+          <div
+            ref={leftRef}
+            className="relative px-6 md:px-8 py-4 md:py-6 border-b lg:border-b-0 lg:border-r border-border/40"
+          >
+            <div className="relative z-10 divide-y divide-border/40">
             <ContactRow
               icon={<Phone className="w-4 h-4" />}
               label="Telefono"
@@ -120,18 +119,15 @@ export function ColophonSection() {
               value="Lunes a Viernes, 09 – 18 hs"
               sub="Sabados con cita previa"
             />
+            </div>
           </div>
-        </div>
 
-        {/* ── RIGHT — cert + coords + map ── */}
-        <div
-          ref={rightRef}
-          className="relative flex flex-col border-t lg:border-t-0 lg:border-l border-border/40"
-        >
+          {/* ── RIGHT — cert + coords + map ── */}
+          <div ref={rightRef} className="relative flex flex-col">
           {/* Top info strip */}
-          <div className="grid grid-cols-2 divide-x divide-border/40 border-b border-border/40 flex-shrink-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/40 border-b border-border/40 flex-shrink-0">
             {/* ANAC cert */}
-            <div className="px-8 py-8 flex flex-col gap-1">
+            <div className="px-6 md:px-8 py-7 md:py-8 flex flex-col items-center text-center gap-1.5">
               <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground">
                 Habilitacion ANAC
               </p>
@@ -144,7 +140,7 @@ export function ColophonSection() {
             </div>
 
             {/* Coordinates block */}
-            <div className="px-8 py-8 flex flex-col gap-3">
+            <div className="px-6 md:px-8 py-7 md:py-8 flex flex-col items-center text-center gap-2.5">
               <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground">
                 Coordenadas GPS
               </p>
@@ -163,10 +159,10 @@ export function ColophonSection() {
           </div>
 
           {/* CTA row */}
-          <div className="grid grid-cols-2 divide-x divide-border/40 border-b border-border/40 flex-shrink-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/40 border-b border-border/40 flex-shrink-0">
             <a
               href="tel:+5491154982223"
-              className="group flex items-center justify-center gap-2 px-6 py-5 font-display font-semibold text-sm uppercase tracking-[0.15em] text-foreground/70 hover:text-accent hover:bg-accent/5 transition-all duration-300"
+              className="group flex items-center justify-center gap-2 px-6 py-4 md:py-5 font-display font-semibold text-sm uppercase tracking-[0.15em] text-foreground/70 hover:text-accent hover:bg-accent/5 transition-all duration-300"
             >
               <Phone className="w-4 h-4" />
               <span>Llamar</span>
@@ -174,7 +170,7 @@ export function ColophonSection() {
             </a>
             <a
               href="mailto:info@sigmaavionics.com.ar"
-              className="group flex items-center justify-center gap-2 px-6 py-5 font-display font-semibold text-sm uppercase tracking-[0.15em] bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300"
+              className="group flex items-center justify-center gap-2 px-6 py-4 md:py-5 font-display font-semibold text-sm uppercase tracking-[0.15em] bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300"
             >
               <Mail className="w-4 h-4" />
               <span>Email</span>
@@ -183,28 +179,31 @@ export function ColophonSection() {
           </div>
 
           {/* Relief map — fills remaining space, isolated from GSAP */}
-          <div className="relative flex-1" style={{ minHeight: "320px" }}>
-            <SigmaMap />
+          <div className="px-6 md:px-8 py-6 md:py-8">
+            <div className="relative mx-auto w-full max-w-xl overflow-hidden rounded-sm border border-border/40" style={{ height: "220px" }}>
+              <SigmaMap />
 
             {/* Overlay label */}
-            <div className="absolute top-4 left-4 z-[400] glass-card px-3 py-2 pointer-events-none">
-              <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-foreground/70">
-                Aeroclub La Plata Ensenada
-              </p>
-            </div>
+              <div className="absolute top-3 left-3 z-[400] glass-card px-2.5 py-1.5 pointer-events-none">
+                <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-foreground/70">
+                  Aeroclub La Plata Ensenada
+                </p>
+              </div>
 
             {/* Open in maps button */}
-            <a
-              href="https://maps.google.com/?q=-34.876984,-57.958714"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute bottom-4 right-4 z-[400] group flex items-center gap-2 glass-card px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-foreground/80 hover:text-accent transition-all duration-200"
-            >
-              Abrir en Maps
-              <ArrowUpRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+              <a
+                href="https://maps.google.com/?q=-34.876984,-57.958714"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-3 right-3 z-[400] group flex items-center gap-1.5 glass-card px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/80 hover:text-accent transition-all duration-200"
+              >
+                Abrir en Maps
+                <ArrowUpRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   )

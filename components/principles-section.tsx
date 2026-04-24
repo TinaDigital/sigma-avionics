@@ -109,33 +109,34 @@ export function PrinciplesSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="principles" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-28 overflow-x-hidden bg-background">
+    <section ref={sectionRef} id="principles" className="relative py-24 md:py-32 2xl:py-36 px-6 md:px-12 lg:px-28 2xl:px-36 3xl:px-44 overflow-x-hidden bg-background">
       {/* Background photo strip */}
-      <div className="absolute inset-y-0 right-0 w-1/2 md:w-2/5 z-0 pointer-events-none hidden lg:block">
+      <div className="absolute inset-0 lg:inset-y-0 lg:right-0 lg:left-auto w-full lg:w-1/2 xl:w-2/5 z-0 pointer-events-none">
         <div className="relative h-full">
-          <div className="absolute inset-0 opacity-10" style={{
+          <div className="absolute inset-0 opacity-16 sm:opacity-18 lg:opacity-20" style={{
             backgroundImage: "url('/images/aircraft-tarmac.jpg')",
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "center right",
+            filter: "brightness(1.2) contrast(1.08) saturate(1.05)",
           }} />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-background/96 via-background/70 lg:via-background/35 to-background/92 lg:to-transparent" />
         </div>
       </div>
 
       {/* Section header */}
-      <div ref={headerRef} className="relative z-10 mb-16 md:mb-20">
+      <div ref={headerRef} className="relative z-10 mb-16 md:mb-20 2xl:mb-24">
         <div className="flex items-center gap-4 mb-6">
           <div className="rule-accent w-8 opacity-80" />
           <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-accent">02 / Nosotros</span>
         </div>
-        <h2 className="font-display font-semibold text-5xl md:text-6xl lg:text-8xl tracking-tight uppercase leading-none">
+        <h2 className="font-display font-semibold text-5xl md:text-6xl lg:text-8xl 2xl:text-9xl tracking-tight uppercase leading-none">
           Sobre<br />
           <span className="text-foreground/30">Sigma</span>
         </h2>
       </div>
 
       {/* Introduction paragraph */}
-      <div ref={introRef} className="relative z-10 mb-16 md:mb-24 max-w-2xl">
+      <div ref={introRef} className="relative z-10 mb-16 md:mb-24 2xl:mb-28 max-w-2xl 2xl:max-w-3xl">
         <p className="text-base md:text-lg text-foreground/80 leading-relaxed font-light">
           En la aviacion no hay margen para el error.{" "}
           <span className="text-accent font-medium">Sigma Avionics</span> nace con una premisa clara: ofrecer un servicio tecnico que combine la precision de un laboratorio de ingenieria con la agilidad que exige la operacion diaria.
@@ -149,7 +150,7 @@ export function PrinciplesSection() {
       </div>
 
       {/* Staggered principles */}
-      <div ref={principlesRef} className="relative z-10 space-y-12 md:space-y-16 max-w-3xl overflow-hidden md:overflow-visible">
+      <div ref={principlesRef} className="relative z-10 space-y-12 md:space-y-16 2xl:space-y-20 max-w-3xl 2xl:max-w-4xl overflow-hidden md:overflow-visible">
         {principles.map((principle, index) => (
           <article
             key={index}

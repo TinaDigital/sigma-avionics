@@ -91,7 +91,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen lg:min-h-[100svh] lg:max-h-[100svh] flex flex-col justify-center overflow-hidden pt-20 md:pt-24 lg:pt-14 notebook-screen:pt-12 short-screen:pt-10"
     >
       {/* Background — subtle radial glow + noise texture, no photo */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -115,25 +115,25 @@ export function HeroSection() {
       <div className="grid-bg absolute inset-0 z-[1] opacity-30 pointer-events-none" />
 
       {/* Horizontal accent lines flanking logo */}
-      <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-[2] pointer-events-none flex items-center px-6 md:px-16 lg:px-28 gap-6">
+      <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-[2] pointer-events-none flex items-center px-6 md:px-16 lg:px-28 2xl:px-36 3xl:px-44 gap-6 2xl:gap-8">
         <div ref={lineLeftRef} className="flex-1 rule-accent opacity-30" />
         <div className="w-4 h-4 border border-accent/40 rotate-45 flex-shrink-0" />
         <div ref={lineRightRef} className="flex-1" style={{ height: "1px", background: "linear-gradient(to left, oklch(0.52 0.19 252 / 0.8), transparent)" }} />
       </div>
 
       {/* Main content — centered, wrapped so scroll-fade works on the whole block */}
-      <div className="hero-content relative z-10 flex flex-col items-center justify-center min-h-screen px-6 md:px-16 text-center">
+      <div className="hero-content relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] md:min-h-[calc(100vh-6rem)] lg:min-h-[calc(100svh-3.5rem)] lg:max-h-[calc(100svh-3.5rem)] notebook-screen:min-h-[calc(100svh-3rem)] notebook-screen:max-h-[calc(100svh-3rem)] px-6 md:px-16 2xl:px-24 text-center">
 
         {/* ANAC badge */}
-        <div className="mb-10 inline-flex items-center gap-3 glass-card px-4 py-2">
+        <div className="mb-6 md:mb-8 lg:mb-7 notebook-screen:mb-5 short-screen:mb-4 2xl:mb-12 inline-flex items-center gap-3 glass-card px-3.5 py-1.5 md:px-4 md:py-2 notebook-screen:px-3 notebook-screen:py-1.5 2xl:px-5 2xl:py-2.5">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-          <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-accent">
+          <span className="font-mono text-[9px] md:text-[10px] notebook-screen:text-[8px] uppercase tracking-[0.32em] md:tracking-[0.35em] notebook-screen:tracking-[0.26em] text-accent">
             Taller Habilitado ANAC — 1B-724
           </span>
         </div>
 
         {/* Logo — hero scale, NO individual parallax */}
-        <div ref={logoRef} className="mb-8 w-full max-w-[280px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[680px]">
+        <div ref={logoRef} className="mb-6 md:mb-8 lg:mb-7 notebook-screen:mb-5 short-screen:mb-4 2xl:mb-10 w-full max-w-[260px] sm:max-w-[400px] md:max-w-[520px] lg:max-w-[560px] notebook:max-w-[500px] desktop:max-w-[640px] 2xl:max-w-[760px] 3xl:max-w-[880px]">
           <NextImage
             src="/images/logo-sigma-white.png"
             alt="Sigma Avionics"
@@ -145,8 +145,8 @@ export function HeroSection() {
         </div>
 
         {/* Tagline */}
-        <div ref={taglineRef} className="mb-12">
-          <p className="font-display font-light text-lg md:text-2xl lg:text-3xl tracking-[0.25em] text-foreground/60 uppercase">
+        <div ref={taglineRef} className="mb-8 md:mb-10 lg:mb-8 notebook-screen:mb-6 short-screen:mb-5 2xl:mb-14">
+          <p className="font-display font-light text-base md:text-xl lg:text-2xl notebook-screen:text-xl short-screen:text-lg desktop:text-3xl 2xl:text-4xl tracking-[0.2em] md:tracking-[0.25em] notebook-screen:tracking-[0.18em] text-foreground/60 uppercase">
             Ingenieria de Precision para su Cabina
           </p>
           <div className="mt-4 rule-accent mx-auto w-24 opacity-50" />
@@ -155,18 +155,18 @@ export function HeroSection() {
         {/* Highlights — 3 pillars replacing the raw stats */}
         <div
           ref={statsRef}
-          className="mb-12 grid grid-cols-3 gap-px bg-border/20 overflow-hidden w-full max-w-lg glass-card"
+          className="mb-8 md:mb-10 lg:mb-8 notebook-screen:mb-6 short-screen:mb-5 2xl:mb-14 grid grid-cols-3 gap-px bg-border/20 overflow-hidden w-full max-w-md md:max-w-lg lg:max-w-[520px] notebook:max-w-[480px] desktop:max-w-[560px] 2xl:max-w-xl glass-card"
         >
-          <div className="stat-item flex flex-col items-center gap-1 py-5 px-3">
-            <span className="font-display font-semibold text-2xl md:text-3xl text-accent tracking-wide">Taller</span>
+          <div className="stat-item flex flex-col items-center gap-1 py-4 md:py-5 notebook-screen:py-3 short-screen:py-2.5 px-2.5 md:px-3">
+            <span className="font-display font-semibold text-xl md:text-2xl lg:text-[1.65rem] notebook-screen:text-[1.35rem] short-screen:text-[1.25rem] text-accent tracking-wide">Taller</span>
             <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">y en pista</span>
           </div>
-          <div className="stat-item flex flex-col items-center gap-1 py-5 px-3 border-x border-border/20">
-            <span className="font-display font-semibold text-2xl md:text-3xl text-accent tracking-wide">RAAC</span>
+          <div className="stat-item flex flex-col items-center gap-1 py-4 md:py-5 notebook-screen:py-3 short-screen:py-2.5 px-2.5 md:px-3 border-x border-border/20">
+            <span className="font-display font-semibold text-xl md:text-2xl lg:text-[1.65rem] notebook-screen:text-[1.35rem] short-screen:text-[1.25rem] text-accent tracking-wide">RAAC</span>
             <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">Cumplimiento</span>
           </div>
-          <div className="stat-item flex flex-col items-center gap-1 py-5 px-3">
-            <span className="font-display font-semibold text-2xl md:text-3xl text-accent tracking-wide">Socios</span>
+          <div className="stat-item flex flex-col items-center gap-1 py-4 md:py-5 notebook-screen:py-3 short-screen:py-2.5 px-2.5 md:px-3">
+            <span className="font-display font-semibold text-xl md:text-2xl lg:text-[1.65rem] notebook-screen:text-[1.35rem] short-screen:text-[1.25rem] text-accent tracking-wide">Socios</span>
             <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">Tecnicos</span>
           </div>
         </div>
