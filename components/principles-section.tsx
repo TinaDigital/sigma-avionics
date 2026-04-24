@@ -1,0 +1,187 @@
+"use client"
+
+import { useRef, useEffect } from "react"
+import { HighlightText } from "@/components/highlight-text"
+import { AirplaneUnderline } from "@/components/airplane-underline"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
+
+export function PrinciplesSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const introRef = useRef<HTMLDivElement>(null)
+  const principlesRef = useRef<HTMLDivElement>(null)
+
+  const principles = [
+    {
+      number: "01",
+      titleParts: [
+        { text: "PRECISION ", highlight: true },
+        { text: "TECNICA", highlight: false },
+      ],
+      description: "En la aviacion no hay margen para el error. Cada instalacion se realiza con la exactitud de un laboratorio de ingenieria.",
+      align: "left",
+    },
+    {
+      number: "02",
+      titleParts: [
+        { text: "CONFIANZA ", highlight: true },
+        { text: "INSTALADA", highlight: false },
+      ],
+      description: "Nuestro compromiso no termina al entregar el trabajo. Somos sus socios tecnicos para acompanar la operacion y mejora continua.",
+      align: "right",
+    },
+    {
+      number: "03",
+      titleParts: [
+        { text: "CUMPLIMIENTO ", highlight: false },
+        { text: "NORMATIVO", highlight: true },
+      ],
+      description: "Trabajos trazables y alineados con los mas altos estandares de la industria aeronautica y regulaciones RAAC.",
+      align: "left",
+    },
+    {
+      number: "04",
+      titleParts: [
+        { text: "EXPERIENCIA ", highlight: false },
+        { text: "INTEGRAL", highlight: true },
+      ],
+      description: "Mas de 20 anos de trayectoria en mantenimiento e ingenieria aeronautica con vision tecnica y operativa.",
+      align: "right",
+    },
+  ]
+
+  useEffect(() => {
+    if (!sectionRef.current || !headerRef.current || !principlesRef.current) return
+
+    const ctx = gsap.context(() => {
+      // Header slide in
+      gsap.from(headerRef.current, {
+        x: -60,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      })
+
+      // Intro fade in
+      if (introRef.current) {
+        gsap.from(introRef.current, {
+          y: 40,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: introRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        })
+      }
+
+      // Each principle slides in — reduced offset on mobile to avoid horizontal overflow
+      const isMobile = window.innerWidth < 768
+      const articles = principlesRef.current?.querySelectorAll("article")
+      articles?.forEach((article, index) => {
+        const isRight = principles[index].align === "right"
+        gsap.from(article, {
+          x: isMobile ? 0 : isRight ? 70 : -70,
+          y: isMobile ? 30 : 0,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: article,
+            start: "top 88%",
+            toggleActions: "play none none reverse",
+          },
+        })
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <section ref={sectionRef} id="principles" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-28 overflow-x-hidden bg-background">
+      {/* Background photo strip */}
+      <div className="absolute inset-y-0 right-0 w-1/2 md:w-2/5 z-0 pointer-events-none hidden lg:block">
+        <div className="relative h-full">
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: "url('/images/aircraft-tarmac.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }} />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+        </div>
+      </div>
+
+      {/* Section header */}
+      <div ref={headerRef} className="relative z-10 mb-16 md:mb-20">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="rule-accent w-8 opacity-80" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-accent">02 / Nosotros</span>
+        </div>
+        <h2 className="font-display font-semibold text-5xl md:text-6xl lg:text-8xl tracking-tight uppercase leading-none">
+          Sobre<br />
+          <span className="text-foreground/30">Sigma</span>
+        </h2>
+      </div>
+
+      {/* Introduction paragraph */}
+      <div ref={introRef} className="relative z-10 mb-16 md:mb-24 max-w-2xl">
+        <p className="text-base md:text-lg text-foreground/80 leading-relaxed font-light">
+          En la aviacion no hay margen para el error.{" "}
+          <span className="text-accent font-medium">Sigma Avionics</span> nace con una premisa clara: ofrecer un servicio tecnico que combine la precision de un laboratorio de ingenieria con la agilidad que exige la operacion diaria.
+        </p>
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mt-4 font-light">
+          Ubicados en el Aeroclub La Plata Ensenada, brindamos soporte tanto en taller como en pista. Somos sus socios tecnicos para acompanar la operacion, el mantenimiento y la mejora continua de su aeronave.
+        </p>
+        <p className="font-display font-semibold text-xl md:text-2xl text-accent tracking-widest uppercase mt-8">
+          A eso lo llamamos instalar confianza.
+        </p>
+      </div>
+
+      {/* Staggered principles */}
+      <div ref={principlesRef} className="relative z-10 space-y-12 md:space-y-16 max-w-3xl overflow-hidden md:overflow-visible">
+        {principles.map((principle, index) => (
+          <article
+            key={index}
+            className={`flex flex-col items-start text-left ${
+              principle.align === "right" ? "md:items-end md:text-right md:ml-auto" : ""
+            }`}
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="rule-accent w-6 opacity-60" />
+              <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-accent">
+                {principle.number}
+              </span>
+            </div>
+
+            <h3 className="font-display font-semibold text-3xl md:text-5xl lg:text-6xl tracking-wide leading-none uppercase">
+              {principle.titleParts.map((part, i) =>
+                part.highlight ? (
+                  <HighlightText key={i} parallaxSpeed={0.6}>
+                    {part.text}
+                  </HighlightText>
+                ) : (
+                  <span key={i} className="text-foreground/40">{part.text}</span>
+                ),
+              )}
+            </h3>
+
+            <p className="mt-4 max-w-md text-sm text-muted-foreground leading-relaxed font-light">
+              {principle.description}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
