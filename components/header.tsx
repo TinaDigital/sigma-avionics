@@ -26,6 +26,15 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.body.style.overflow = originalOverflow
+    }
+  }, [isMobileMenuOpen])
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
@@ -109,7 +118,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-foreground relative z-[90]"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -117,37 +126,49 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Fullscreen */}
       <div
         className={cn(
-          "md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border/50 transition-all duration-300 overflow-hidden",
-          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          "md:hidden fixed inset-0 z-[80] transition-all duration-300",
+          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        <nav className="flex flex-col px-4 py-4">
+        <div className="absolute inset-0 bg-background/95 backdrop-blur-xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_50%_15%,oklch(0.52_0.19_252_/_0.12)_0%,transparent_70%)]" />
+
+        <div className="relative h-full px-6 pt-24 pb-10 flex flex-col">
+          <nav className="flex-1 flex flex-col items-center justify-center gap-2 -mt-8">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className="py-3 font-mono text-sm uppercase tracking-widest text-muted-foreground hover:text-accent transition-colors duration-200 text-left border-b border-border/30 last:border-0 cursor-pointer"
+              className="group w-full max-w-sm py-4 font-display text-2xl uppercase tracking-[0.14em] text-foreground/80 hover:text-accent transition-all duration-200 cursor-pointer border-b border-border/30"
             >
-              {item.label}
+              <span className="flex items-center justify-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent/70 transition-all duration-200 group-hover:scale-125 group-hover:bg-accent" />
+                <span>{item.label}</span>
+              </span>
             </button>
           ))}
           <a
             href="/aviation-info-portal"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="py-3 font-mono text-sm uppercase tracking-widest text-muted-foreground hover:text-accent transition-colors duration-200 text-left border-b border-border/30 cursor-pointer"
+            className="group w-full max-w-sm py-4 font-display text-2xl uppercase tracking-[0.14em] text-foreground/80 hover:text-accent transition-all duration-200 cursor-pointer border-b border-border/30"
           >
-            Aviation Info Portal
+            <span className="flex items-center justify-center gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent/70 transition-all duration-200 group-hover:scale-125 group-hover:bg-accent" />
+              <span>Aviation Info Portal</span>
+            </span>
           </a>
+          </nav>
+
           <a
             href="tel:+5491154982223"
-            className="mt-4 inline-flex items-center justify-center gap-2 border border-accent bg-accent text-accent-foreground px-4 py-3 font-mono text-xs uppercase tracking-widest hover:bg-accent/90 transition-all duration-200 cursor-pointer"
+            className="mx-auto mt-6 inline-flex items-center justify-center gap-2 border border-accent bg-accent text-accent-foreground px-6 py-3 font-mono text-xs uppercase tracking-widest hover:bg-accent/90 transition-all duration-200 cursor-pointer"
           >
             Contactar Ahora
           </a>
-        </nav>
+        </div>
       </div>
     </header>
   )
