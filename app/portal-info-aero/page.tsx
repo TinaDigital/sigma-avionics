@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Aviation Info Portal | SIGMA Avionics",
     description:
       "Herramientas de consulta operativa en tiempo real para aviación civil: METAR, mapas y meteorología.",
-    url: "/aviation-info-portal",
+    url: "/portal-info-aero",
   },
   alternates: {
-    canonical: "/aviation-info-portal",
+    canonical: "/portal-info-aero",
   },
 }
 

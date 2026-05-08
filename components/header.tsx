@@ -99,7 +99,7 @@ export function Header() {
               </button>
             ))}
             <a
-              href="/aviation-info-portal"
+              href="/portal-info-aero"
               className="group relative font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200 pb-0.5 cursor-pointer"
             >
               Portal
@@ -151,7 +151,7 @@ export function Header() {
             </button>
           ))}
           <a
-            href="/aviation-info-portal"
+            href="/portal-info-aero"
             onClick={() => setIsMobileMenuOpen(false)}
             className="group w-full max-w-sm py-4 font-display text-2xl uppercase tracking-[0.14em] text-foreground/80 hover:text-accent transition-all duration-200 cursor-pointer border-b border-border/30"
           >

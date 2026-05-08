@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/aviation-info-portal`,
+      url: `${baseUrl}/portal-info-aero`,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.8,
