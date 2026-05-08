@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
@@ -17,6 +17,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,15 +46,17 @@ export function Header() {
 
   const goToHomeOrScrollHero = () => {
     if (pathname !== "/") {
-      window.location.href = "/"
+      router.push("/")
+      setIsMobileMenuOpen(false)
       return
     }
     scrollToSection("hero")
   }
 
   const handleNavClick = (id: string) => {
-    if (id === "hero" && pathname !== "/") {
-      window.location.href = "/"
+    if (pathname !== "/") {
+      router.push(`/#${id}`)
+      setIsMobileMenuOpen(false)
       return
     }
     scrollToSection(id)
@@ -138,28 +141,28 @@ export function Header() {
 
         <div className="relative h-full px-6 pt-24 pb-10 flex flex-col">
           <nav className="flex-1 flex flex-col items-center justify-center gap-2 -mt-8">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavClick(item.id)}
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className="group w-full max-w-sm py-4 font-display text-2xl uppercase tracking-[0.14em] text-foreground/80 hover:text-accent transition-all duration-200 cursor-pointer border-b border-border/30"
+              >
+                <span className="flex items-center justify-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent/70 transition-all duration-200 group-hover:scale-125 group-hover:bg-accent" />
+                  <span>{item.label}</span>
+                </span>
+              </button>
+            ))}
+            <a
+              href="/portal-info-aero"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="group w-full max-w-sm py-4 font-display text-2xl uppercase tracking-[0.14em] text-foreground/80 hover:text-accent transition-all duration-200 cursor-pointer border-b border-border/30"
             >
               <span className="flex items-center justify-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent/70 transition-all duration-200 group-hover:scale-125 group-hover:bg-accent" />
-                <span>{item.label}</span>
+                <span>Portal Info Aero</span>
               </span>
-            </button>
-          ))}
-          <a
-            href="/portal-info-aero"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="group w-full max-w-sm py-4 font-display text-2xl uppercase tracking-[0.14em] text-foreground/80 hover:text-accent transition-all duration-200 cursor-pointer border-b border-border/30"
-          >
-            <span className="flex items-center justify-center gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent/70 transition-all duration-200 group-hover:scale-125 group-hover:bg-accent" />
-              <span>Aviation Info Portal</span>
-            </span>
-          </a>
+            </a>
           </nav>
 
           <a
