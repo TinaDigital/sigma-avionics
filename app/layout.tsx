@@ -95,9 +95,18 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/images/logo-sigma-white.png",
-    shortcut: "/images/logo-sigma-white.png",
-    apple: "/images/logo-sigma-white.png",
+    icon: [
+      { url: "/logo-sigma-blue.png", media: "(prefers-color-scheme: light)" },
+      { url: "/logo-sigma-white.png", media: "(prefers-color-scheme: dark)" },
+    ],
+    shortcut: [
+      { url: "/logo-sigma-blue.png", media: "(prefers-color-scheme: light)" },
+      { url: "/logo-sigma-white.png", media: "(prefers-color-scheme: dark)" },
+    ],
+    apple: [
+      { url: "/logo-sigma-blue.png", media: "(prefers-color-scheme: light)" },
+      { url: "/logo-sigma-white.png", media: "(prefers-color-scheme: dark)" },
+    ],
   },
 }
 
