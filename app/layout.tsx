@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Barlow_Condensed, Barlow, IBM_Plex_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { SmoothScroll } from "@/components/smooth-scroll"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 import "./globals.css"
 
 const barlowCondensed = Barlow_Condensed({
@@ -122,6 +123,7 @@ export default function RootLayout({
       >
         <div className="noise-overlay" aria-hidden="true" />
         <SmoothScroll>{children}</SmoothScroll>
+        <WhatsAppButton />
         <Analytics />
       </body>
     </html>
