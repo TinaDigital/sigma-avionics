@@ -21,27 +21,83 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-mono",
 })
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+}
+
 export const metadata: Metadata = {
-  title: "SIGMA AVIONICS — Ingenieria de Precision para su Cabina",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://www.sigmaavionics.com.ar"),
+  title: {
+    default: "SIGMA AVIONICS — Ingeniería de Precisión para su Cabina",
+    template: "%s | SIGMA AVIONICS",
+  },
   description:
-    "Soluciones integrales en avionica, cumplimiento normativo RAAC y tecnologia de vanguardia para la aviacion civil. Taller Aeronautico habilitado ANAC 1B-724.",
-  generator: "v0.app",
-  icons: {
-    icon: [
+    "Soluciones integrales en aviónica, cumplimiento normativo RAAC y tecnología de vanguardia para la aviación civil. Taller Aeronáutico habilitado ANAC 1B-724.",
+  keywords: [
+    "aviónica",
+    "ingeniería aeronáutica",
+    "mantenimiento de aeronaves",
+    "taller aeronáutico",
+    "ANAC 1B-724",
+    "RAAC",
+    "tecnología de aviación",
+    "SIGMA Avionics",
+    "La Plata",
+    "Argentina"
+  ],
+  authors: [{ name: "SIGMA Avionics" }],
+  creator: "SIGMA Avionics",
+  publisher: "SIGMA Avionics",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: "/",
+    title: "SIGMA AVIONICS — Ingeniería de Precisión para su Cabina",
+    description:
+      "Soluciones integrales en aviónica, cumplimiento normativo RAAC y tecnología de vanguardia para la aviación civil. Taller Aeronáutico habilitado ANAC 1B-724.",
+    siteName: "SIGMA Avionics",
+    images: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SIGMA Avionics Logo y Taller",
       },
     ],
-    apple: "/apple-icon.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SIGMA AVIONICS — Ingeniería de Precisión para su Cabina",
+    description:
+      "Soluciones integrales en aviónica y cumplimiento normativo para la aviación civil.",
+    images: ["/og-image.jpg"],
+    creator: "@sigmaavionics",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/images/logo-sigma-white.png",
+    shortcut: "/images/logo-sigma-white.png",
+    apple: "/images/logo-sigma-white.png",
   },
 }
 

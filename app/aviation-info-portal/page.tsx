@@ -4,9 +4,18 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "Aviation Info Portal | Sigma Avionics",
+  title: "Aviation Info Portal",
   description:
-    "Portal con informacion aeronautica en tiempo real: mapa, METAR/TAF y futuros modulos de datos operativos.",
+    "Portal con información aeronáutica en tiempo real: mapa interactivo, METAR/TAF, viento, pronóstico y enlace directo al AIP/MADHEL de ANAC para pilotos y operadores.",
+  openGraph: {
+    title: "Aviation Info Portal | SIGMA Avionics",
+    description:
+      "Herramientas de consulta operativa en tiempo real para aviación civil: METAR, mapas y meteorología.",
+    url: "/aviation-info-portal",
+  },
+  alternates: {
+    canonical: "/aviation-info-portal",
+  },
 }
 
 export default function AviationInfoPortalPage() {
