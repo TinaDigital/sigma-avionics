@@ -231,6 +231,8 @@ function ServiceCard({
           src={service.image}
           alt={service.title}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          quality={80}
           className={cn(
             "object-cover transition-all duration-700",
             isHovered ? "scale-105 opacity-40" : "opacity-80"
