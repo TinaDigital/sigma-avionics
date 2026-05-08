@@ -242,7 +242,7 @@ function ServiceCard({
       </div>
 
       {/* Content — h-full so all cards stretch to row height */}
-      <div className="relative z-10 p-7 md:p-9 flex flex-col gap-5 h-full glass-card border-0 transition-all duration-500 group-hover:bg-background/10">
+      <div className="relative z-10 p-7 md:p-9 flex flex-col gap-5 h-full bg-background/50 border border-border/20 border-0 transition-all duration-500 group-hover:bg-background/30">
         {/* Top bar */}
         <div className="flex items-start justify-between">
           <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-accent">{service.code}</span>
