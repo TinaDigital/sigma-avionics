@@ -225,7 +225,7 @@ function ServiceCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Image layer */}
+      {/* Image layer — gradient reveal from left (opaque) to right (visible) */}
       <div className="absolute inset-0 z-0">
         <Image
           src={service.image}
@@ -233,10 +233,10 @@ function ServiceCard({
           fill
           className={cn(
             "object-cover transition-all duration-700",
-            isHovered ? "scale-105 opacity-20" : "opacity-0"
+            isHovered ? "scale-105 opacity-40" : "opacity-80"
           )}
         />
-        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 via-40% to-background/20" />
       </div>
 
       {/* Content — h-full so all cards stretch to row height */}
