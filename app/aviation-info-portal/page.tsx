@@ -40,7 +40,7 @@ export default function AviationInfoPortalPage() {
               <h2 className="font-display font-semibold text-2xl md:text-3xl uppercase tracking-wide mb-4">
                 Mapa Operativo
               </h2>
-              <div className="relative w-full overflow-hidden border border-border/40 h-[320px] md:h-[460px] lg:h-[560px]">
+              <div className="relative w-full overflow-hidden border border-border/40 h-[55vh] min-h-[380px] max-h-[600px] xl:max-h-[700px]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d5983.789388322374!2d-57.96151101215368!3d-34.87672713908732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDUyJzM3LjEiUyA1N8KwNTcnMzEuNCJX!5e1!3m2!1ses-419!2sar!4v1776999325631!5m2!1ses-419!2sar"
                   title="Mapa Aeronautico Aero Club La Plata"
@@ -78,9 +78,9 @@ export default function AviationInfoPortalPage() {
               <h2 className="font-display font-semibold text-2xl md:text-3xl uppercase tracking-wide mb-4">
                 Viento y Pronostico
               </h2>
-              <div className="relative w-full overflow-hidden border border-border/40 h-[380px] md:h-[520px] lg:h-[620px]">
+              <div className="relative w-full overflow-hidden border border-border/40 h-[55vh] min-h-[400px] max-h-[650px] xl:max-h-[750px]">
                 <iframe
-                  src="https://www.windy.com/menu?-35.154,-57.990,5"
+                  src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=default&metricWind=default&zoom=5&overlay=wind&product=ecmwf&level=surface&lat=-40.078&lon=-58.447&detailLat=-37.3&detailLon=-58.447&detail=true"
                   title="Windy mapa meteorologico"
                   className="absolute inset-0 h-full w-full"
                   style={{ border: 0 }}
@@ -104,7 +104,7 @@ export default function AviationInfoPortalPage() {
                   Abrir en nueva pestana
                 </a>
               </div>
-              <div className="relative w-full overflow-hidden border border-border/40 h-[460px] md:h-[640px] lg:h-[760px]">
+              <div className="relative w-full overflow-hidden border border-border/40 h-[70vh] min-h-[500px] max-h-[800px] xl:max-h-[900px]">
                 <iframe
                   src="https://ais.anac.gob.ar/madhel/"
                   title="MADHEL Electronico ANAC"
