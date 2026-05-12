@@ -4,6 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 @custom-variant short-screen (@media (max-height: 50rem));
 @custom-variant notebook-screen (@media (min-width: 64rem) and (max-width: 90rem));
+@custom-variant mid-desktop (@media (min-width: 64rem) and (max-height: 56.25rem));
+@custom-variant compact-desktop (@media (min-width: 64rem) and (max-height: 43.75rem));
 
 /* Sigma Avionics — Premium dark aerospace theme */
 :root {

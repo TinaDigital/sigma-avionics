@@ -15,7 +15,7 @@ const services = [
     category: "Garmin / Aspen / Dynon",
     description:
       "Modernizacion y retrofit de cabina. Instalamos equipos de navegacion, comunicaciones y sistemas glass-cockpit en aeronaves civiles y experimentales.",
-    image: "/images/cockpit.jpg",
+    image: "/images/instalacion_avionica.jpg",
   },
   {
     code: "SVC-02",
@@ -27,10 +27,10 @@ const services = [
   },
   {
     code: "SVC-03",
-    title: "Sistema Pitot-Estatico",
+    title: "Sistema Altimétrico: Pitot y Estática",
     category: "RAAC 91.411",
     description:
-      "Ensayo de sistemas altimetricos y pitot-estatico con equipos calibrados. Cumplimiento normativo para vuelo IFR conforme RAAC 91.411.",
+      "Ensayo de sistemas altimétricos y pitot-estático con equipos calibrados. Cumplimiento normativo para vuelo IFR conforme RAAC 91.411.",
     image: "/images/aircraft-sunset.jpg",
   },
   {
@@ -39,7 +39,7 @@ const services = [
     category: "Cartografia / FMS",
     description:
       "Actualizacion de cartografia y bases de datos para GPS, FMS y sistemas TAWS/EGPWS. Datos aeronauticos vigentes y certificados.",
-    image: "/images/aircraft-tarmac.jpg",
+    image: "/images/actualizacion_datos.jpg",
   },
   {
     code: "SVC-05",
@@ -47,7 +47,7 @@ const services = [
     category: "Laboratorio",
     description:
       "Pruebas funcionales, calibracion y diagnostico de fallas en sistemas de avionica y electricos. Mantenimiento correctivo y preventivo en taller y en pista.",
-    image: "/images/aircraft-hangar.jpg",
+    image: "/images/diagnostico_reparacion.jpg",
   },
   {
     code: "SVC-06",
@@ -55,7 +55,7 @@ const services = [
     category: "Ingenieria",
     description:
       "Analisis de carga electrica, Instrucciones de Continuacion de la Aeronavegabilidad (ICA), informes de ensayo y planos de instalacion.",
-    image: "/images/cockpit.jpg",
+    image: "/images/documentacion_tecnica.jpg",
   },
 ]
 
@@ -150,7 +150,7 @@ export function SignalsSection() {
           "pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50 hidden md:block",
           "w-10 h-10 rounded-full border border-accent/60",
           "transition-opacity duration-300",
-          isHovering ? "opacity-100" : "opacity-0",
+          isHovering ? "opacity-10" : "opacity-0",
         )}
       />
 
@@ -175,7 +175,7 @@ export function SignalsSection() {
             src="/images/aircraft-hangar.jpg"
             alt="Taller de avionica Sigma Avionics"
             fill
-            className="object-cover opacity-70"
+            className="object-cover"
             sizes="(max-width: 1024px) 100vw, 420px"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/35 to-transparent" />
@@ -235,10 +235,10 @@ function ServiceCard({
           quality={80}
           className={cn(
             "object-cover transition-all duration-700",
-            isHovered ? "scale-105 opacity-40" : "opacity-80"
+            isHovered ? "scale-105 opacity-90" : "opacity-100"
           )}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 via-40% to-background/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 via-20% to-background/5" />
       </div>
 
       {/* Content — h-full so all cards stretch to row height */}

@@ -114,13 +114,13 @@ export function PrinciplesSection() {
       {/* Background photo strip */}
       <div className="absolute inset-0 lg:inset-y-0 lg:right-0 lg:left-auto w-full lg:w-1/2 xl:w-2/5 z-0 pointer-events-none">
         <div className="relative h-full">
-          <div className="absolute inset-0 opacity-16 sm:opacity-18 lg:opacity-20" style={{
+          <div className="absolute inset-0 opacity-20 sm:opacity-30 lg:opacity-40" style={{
             backgroundImage: "url('/images/aircraft-tarmac.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center right",
             filter: "brightness(1.2) contrast(1.08) saturate(1.05)",
           }} />
-          <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-background/96 via-background/70 lg:via-background/35 to-background/92 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-background/96 via-background/50 lg:via-background/20 to-background/70 lg:to-transparent" />
         </div>
       </div>
 
@@ -138,29 +138,29 @@ export function PrinciplesSection() {
       {/* Introduction paragraph */}
       <div ref={introRef} className="relative z-10 mb-16 md:mb-24 2xl:mb-28 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] 2xl:grid-cols-[minmax(0,1fr)_380px] gap-8 lg:gap-10 items-start max-w-5xl">
         <div>
-        <p className="text-base md:text-lg text-foreground/80 leading-relaxed font-light">
-          En la aviacion no hay margen para el error.{" "}
-          <span className="text-accent font-medium">Sigma Avionics</span> nace con una premisa clara: ofrecer un servicio tecnico que combine la precision de un laboratorio de ingenieria con la agilidad que exige la operacion diaria.
-        </p>
-        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mt-4 font-light">
-          Ubicados en el Aeroclub La Plata Ensenada, brindamos soporte tanto en taller como en pista. Somos sus socios tecnicos para acompanar la operacion, el mantenimiento y la mejora continua de su aeronave.
-        </p>
-        <p className="font-display font-semibold text-xl md:text-2xl text-accent tracking-widest uppercase mt-8">
-          A eso lo llamamos instalar confianza.
-        </p>
+          <p className="text-base md:text-lg text-foreground/80 leading-relaxed font-light">
+            En la aviacion no hay margen para el error.{" "}
+            <span className="text-accent font-medium">Sigma Avionics</span> nace con una premisa clara: ofrecer un servicio tecnico que combine la precision de un laboratorio de ingenieria con la agilidad que exige la operacion diaria.
+          </p>
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed mt-4 font-light">
+            Ubicados en el Aeroclub La Plata Ensenada, brindamos soporte tanto en taller como en pista. Somos sus socios tecnicos para acompanar la operacion, el mantenimiento y la mejora continua de su aeronave.
+          </p>
+          <p className="font-display font-semibold text-xl md:text-2xl text-accent tracking-widest uppercase mt-8">
+            A eso lo llamamos instalar confianza.
+          </p>
         </div>
         <div className="relative h-52 md:h-64 lg:h-full min-h-[210px] overflow-hidden border border-border/40">
           <Image
             src="/images/cockpit.jpg"
             alt="Cabina y panel de instrumentos"
             fill
-            className="object-cover opacity-75"
+            className="object-cover"
             sizes="(max-width: 1024px) 100vw, 380px"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/15 to-transparent" />
           <div className="absolute bottom-3 left-3 glass-card px-3 py-2">
             <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-foreground/75">
-              Precision en cabina
+              Seguridad y Estetica En Cabina
             </p>
           </div>
         </div>
@@ -171,9 +171,8 @@ export function PrinciplesSection() {
         {principles.map((principle, index) => (
           <article
             key={index}
-            className={`flex flex-col items-start text-left ${
-              principle.align === "right" ? "md:items-end md:text-right md:ml-auto" : ""
-            }`}
+            className={`flex flex-col items-start text-left ${principle.align === "right" ? "md:items-end md:text-right md:ml-auto" : ""
+              }`}
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="rule-accent w-6 opacity-60" />
