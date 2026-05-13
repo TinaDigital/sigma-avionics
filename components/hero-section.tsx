@@ -142,14 +142,14 @@ export function HeroSection() {
             className="w-full h-auto drop-shadow-2xl"
             priority
           />
-          <p className="mt-2 sm:mt-3 md:mt-4 mid-desktop:mt-2 compact-desktop:mt-1 font-mono text-[8px] sm:text-[10px] md:text-sm notebook-screen:text-xs compact-desktop:text-[9px] mid-desktop:text-[11px] desktop:text-base tracking-[0.15em] sm:tracking-[0.25em] md:tracking-[0.4em] compact-desktop:tracking-[0.2em] text-foreground/50 uppercase text-center">
+          <p className=" sm:mt-2 md:mt-4 mid-desktop:mt-1 compact-desktop:mt-1 font-mono text-[12px] md:text-[15px] notebook-screen:text-[15px] compact-desktop:text-[15px] mid-desktop:text-[15px] desktop:text-[18px] tracking-[0.15em] sm:tracking-[0.25em] md:tracking-[0.4em] compact-desktop:tracking-[0.2em] text-foreground/50 uppercase text-center">
             Instalando Confianza
           </p>
         </div>
 
         {/* Tagline */}
         <div ref={taglineRef} className="mb-4 sm:mb-6 md:mb-10 lg:mb-8 notebook-screen:mb-6 short-screen:mb-5 mid-desktop:mb-4 compact-desktop:mb-2 2xl:mb-14">
-          <p className="font-display font-light text-sm sm:text-base md:text-xl lg:text-2xl notebook-screen:text-xl short-screen:text-lg mid-desktop:text-lg compact-desktop:text-base desktop:text-3xl 2xl:text-4xl tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.25em] notebook-screen:tracking-[0.18em] compact-desktop:tracking-[0.12em] text-foreground/60 uppercase">
+          <p className="font-display font-light text-[15px] sm:text-sm md:text-lg lg:text-xl notebook-screen:text-lg short-screen:text-[15px] mid-desktop:text-base compact-desktop:text-sm desktop:text-2xl 2xl:text-3xl tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.25em] notebook-screen:tracking-[0.18em] compact-desktop:tracking-[0.12em] text-foreground/60 uppercase">
             Ingenieria de Precision para su Cabina
           </p>
           <div className="mt-2 sm:mt-3 md:mt-4 compact-desktop:mt-1 mid-desktop:mt-2 rule-accent mx-auto w-16 sm:w-20 md:w-24 compact-desktop:w-14 opacity-50" />
