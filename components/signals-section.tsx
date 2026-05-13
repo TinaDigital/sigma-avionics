@@ -193,7 +193,7 @@ export function SignalsSection() {
           scrollRef.current = el
           cardsRef.current = el
         }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border/30 auto-rows-fr"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-px bg-transparent sm:bg-border/30 auto-rows-fr"
         style={{ scrollbarWidth: "none" }}
       >
         {services.map((service, index) => (
@@ -221,7 +221,7 @@ function ServiceCard({
 
   return (
     <article
-      className="group relative bg-background overflow-hidden cursor-default h-full"
+      className="group relative bg-background overflow-hidden cursor-default h-full border border-border/30 sm:border-0"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
